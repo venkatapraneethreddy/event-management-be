@@ -5,6 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import com.college.eventclub.model.Role;
+import com.college.eventclub.model.User;
+import com.college.eventclub.service.UserService;
 
 @SpringBootApplication
 @EnableAsync
