@@ -28,6 +28,7 @@ com\college\eventclub\dto\EventAnalyticsResponse.class
 com\college\eventclub\dto\LoginRequest.class
 com\college\eventclub\dto\RegistrantResponse.class
 com\college\eventclub\model\Payment.class
+com\college\eventclub\dto\RegisterRequest.class
 com\college\eventclub\model\Event.class
 com\college\eventclub\model\Role.class
 com\college\eventclub\service\EmailService.class

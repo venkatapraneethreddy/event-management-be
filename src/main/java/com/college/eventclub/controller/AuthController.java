@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
-
+import com.college.eventclub.dto.RegisterRequest;
 import java.util.Map;
 
 import com.college.eventclub.config.JwtUtil;
@@ -32,31 +32,38 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@Valid @RequestBody User user) {
-        // Prevent self-registration as ADMIN
-        if (user.getRole() == null || user.getRole() == Role.ADMIN) {
-            user.setRole(Role.STUDENT);
-        }
+public ResponseEntity<?> registerUser(@Valid @RequestBody RegisterRequest request) {
 
-        // Check for duplicate email
-        if (userService.findByEmail(user.getEmail()).isPresent()) {
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-                    .body(Map.of("error", "An account with this email already exists"));
-        }
+    // Map DTO → Entity
+    User user = new User();
+    user.setFullName(request.getFullName());
+    user.setEmail(request.getEmail());
+    user.setPassword(passwordEncoder.encode(request.getPassword()));
 
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        User savedUser = userService.saveUser(user);
-
-        return new ResponseEntity<>(
-            new RegisterResponse(
-                savedUser.getUserId(),
-                savedUser.getFullName(),
-                savedUser.getEmail(),
-                savedUser.getRole()
-            ),
-            HttpStatus.CREATED
-        );
+    if (request.getRole() == null || request.getRole().equals("ADMIN")) {
+        user.setRole(Role.STUDENT);
+    } else {
+        user.setRole(Role.valueOf(request.getRole()));
     }
+
+    // Check for duplicate email
+    if (userService.findByEmail(user.getEmail()).isPresent()) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(Map.of("error", "An account with this email already exists"));
+    }
+
+    User savedUser = userService.saveUser(user);
+
+    return new ResponseEntity<>(
+        new RegisterResponse(
+            savedUser.getUserId(),
+            savedUser.getFullName(),
+            savedUser.getEmail(),
+            savedUser.getRole()
+        ),
+        HttpStatus.CREATED
+    );
+}
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest request) {

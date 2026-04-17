@@ -19,6 +19,7 @@ E:\eventManagemnt\event-management-be-main\src\main\java\com\college\eventclub\d
 E:\eventManagemnt\event-management-be-main\src\main\java\com\college\eventclub\dto\EventWithSpotsDto.java
 E:\eventManagemnt\event-management-be-main\src\main\java\com\college\eventclub\dto\LoginRequest.java
 E:\eventManagemnt\event-management-be-main\src\main\java\com\college\eventclub\dto\OrganizerAnalyticsResponse.java
+E:\eventManagemnt\event-management-be-main\src\main\java\com\college\eventclub\dto\RegisterRequest.java
 E:\eventManagemnt\event-management-be-main\src\main\java\com\college\eventclub\dto\RegisterResponse.java
 E:\eventManagemnt\event-management-be-main\src\main\java\com\college\eventclub\dto\RegistrantResponse.java
 E:\eventManagemnt\event-management-be-main\src\main\java\com\college\eventclub\dto\UserResponse.java
