@@ -15,6 +15,7 @@ public class DataInitializer {
     @Bean
     CommandLineRunner initAdmin(UserService userService, PasswordEncoder passwordEncoder) {
         return args -> {
+			System.out.println("🔥 DataInitializer running...");
             String adminEmail = "admin@gmail.com";
 
             if (userService.findByEmail(adminEmail).isEmpty()) {
