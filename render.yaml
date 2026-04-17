@@ -1,6 +1,6 @@
 services:
   - type: web
     name: event-backend
-    env: java
+    runtime: java
     buildCommand: "./mvnw clean package -DskipTests"
     startCommand: "java -jar target/*.jar"
