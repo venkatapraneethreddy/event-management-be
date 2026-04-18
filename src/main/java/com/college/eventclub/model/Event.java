@@ -23,7 +23,7 @@ public class Event {
     private LocalDateTime eventDate;
 	
 	@NotBlank(message = "Place is required")
-	@Column(name = "place")
+	@Column(name = "place", nullable = false)
 	private String place;
 
     @NotBlank(message = "Location is required")
