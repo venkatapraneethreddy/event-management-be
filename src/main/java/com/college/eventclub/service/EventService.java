@@ -128,6 +128,7 @@ public class EventService {
         if (updates.getTitle() != null)       event.setTitle(updates.getTitle());
         if (updates.getDescription() != null) event.setDescription(updates.getDescription());
         if (updates.getEventDate() != null)   event.setEventDate(updates.getEventDate());
+        if (updates.getPlace() != null)       event.setPlace(updates.getPlace());
         if (updates.getLocation() != null)    event.setLocation(updates.getLocation());
         if (updates.getCapacity() != null)    event.setCapacity(updates.getCapacity());
         if (updates.getFee() != null)         event.setFee(updates.getFee());

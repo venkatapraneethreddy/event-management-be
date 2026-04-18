@@ -17,6 +17,7 @@ public class EventWithSpotsDto {
     public String getTitle()          { return event.getTitle(); }
     public String getDescription()    { return event.getDescription(); }
     public Object getEventDate()      { return event.getEventDate(); }
+    public String getPlace()          { return event.getPlace(); }
     public String getLocation()       { return event.getLocation(); }
     public Integer getCapacity()      { return event.getCapacity(); }
     public boolean isPaid()           { return event.isPaid(); }
