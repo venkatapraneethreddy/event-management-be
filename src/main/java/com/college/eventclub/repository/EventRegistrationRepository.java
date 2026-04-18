@@ -27,4 +27,6 @@ public interface EventRegistrationRepository extends JpaRepository<EventRegistra
     List<EventRegistration> findByEvent(Event event);
 
     List<EventRegistration> findByEvent_Club_CreatedBy_Email(String email);
+	
+	List<EventRegistration> findByEvent_EventId(Long eventId);
 }

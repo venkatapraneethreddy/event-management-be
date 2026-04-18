@@ -21,6 +21,10 @@ public class Event {
     private String description;
 
     private LocalDateTime eventDate;
+	
+	@NotBlank(message = "Place is required")
+	@Column(name = "place")
+	private String place;
 
     @NotBlank(message = "Location is required")
     private String location;
@@ -59,6 +63,8 @@ public class Event {
     public void setDescription(String description) { this.description = description; }
     public LocalDateTime getEventDate() { return eventDate; }
     public void setEventDate(LocalDateTime eventDate) { this.eventDate = eventDate; }
+	public String getPlace() { return place; }
+	public void setPlace(String place) { this.place = place; }
     public String getLocation() { return location; }
     public void setLocation(String location) { this.location = location; }
     public Integer getCapacity() { return capacity; }
